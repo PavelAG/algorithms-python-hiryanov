@@ -4,29 +4,18 @@ Draw a flower.
 
 import turtle
 
-# Make a cursor look like a turtle.
+# define the cursor shape
 turtle.shape('turtle')
 
-# Set a circle. The more sides, the smoother the circle.
-steps_number = 60
-step = 6
+petals_number = 6 # number of petals
+petals_pair = int(petals_number/2) # calculating the number of pairs
+angle = 360/petals_number #identifying angle
 
-angle = 360 / steps_number
+for pair in range(petals_pair):
+  
+    turtle.circle(80) # making 1st petal(circle)
+    turtle.circle(-80) # making symmetrical petal(circle)
+    turtle.right(angle)
 
-circle_couples_number = 3
-
-for i in range(circle_couples_number):
-
-	for i in range(steps_number):
-		turtle.forward(step)
-		turtle.left(angle)
-
-	# Make an alignment by turning before moving forward.
-	for i in range(steps_number):
-		turtle.right(angle)
-		turtle.forward(step)
-
-	turtle.left(180 / circle_couples_number)
-
-# Prevent window from closing so you can see the result.
+# Prevent window from closing
 turtle.mainloop()
